@@ -1,10 +1,14 @@
+
+Natural Divisors Calculator
+
+
+
 This script calculates all the natural divisors of a given number and saves the output to the /var/log/messages file. It can be run with a command-line argument specifying the number, or by providing the number in a file called input.txt in the user's home directory.
 
 Usage
 
 To run the script with a command-line argument, open a terminal and navigate to the directory where the script is located. Then, run the following command:
 
-Natural Divisors Calculator
 
 ./clinch.sh [number]
 
