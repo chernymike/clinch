@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Function to calculate all natural dividers of a number
+# i - is a natural divisor of n
+
+divisors() {
+  n=$1
+  for ((i=1;i<=n;i++)); do
+    if ((n%i==0)); then
+      echo -n "$i "
+    fi
+  done
+  echo ""
+}
+
+# Check if an argument was passed, if not, read from file in user's home directory
+# -z - checks if first argument passed to script is empty 
+ 
+if [ -z "$1" ]; then
+  if [ -f ~/input.txt ]; then
+    num=$(cat ~/input.txt)
+  else
+    echo "No input provided and ~/input.txt not found"
+    exit 1
+  fi
+else
+  num=$1
+fi
+
+# Calculate divisors and write to log file
+echo "Divisors of $num: $(divisors $num)" | sudo tee -a /var/log/messages
+
